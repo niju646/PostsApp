@@ -1,17 +1,121 @@
-# flutter_bloc
+# Flutter Posts App
 
-A new Flutter project.
+A simple Flutter application demonstrating **CRUD operations (Get, Create, Delete)** using the **BLoC** state management pattern and **Dio** for API communication.
 
-## Getting Started
+The project is built as a learning example to understand how to manage API calls, application state, and UI updates using the `flutter_bloc` package.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## ✨ Features
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- 📥 Fetch Posts
+- ➕ Create a New Post
+- 🗑️ Delete a Post
+- ⚡ State Management using BLoC
+- 🌐 REST API Integration using Dio
+- 🔄 Loading and Error States
+- 🎯 Clean and Modular Project Structure
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🛠️ Tech Stack
+
+- Flutter
+- Dart
+- flutter_bloc
+- Dio
+- REST API
+
+---
+
+## 📂 Project Structure
+
+```
+lib/
+│
+├── features/
+│   └── posts/
+│       ├── data/
+│       │   ├── models/
+│       │   │     └── post_model.dart
+│       │   └── services/
+│       │         └── post_service.dart
+│       │
+│       ├── presentation/
+│       │   ├── bloc/
+│       │   │   ├── posts_bloc.dart
+│       │   │   ├── posts_event.dart
+│       │   │   └── posts_state.dart
+│       │   │
+│       │   ├── screens/
+│       │   │     └── post_screen.dart
+│       │   │
+│       │   └── widgets/
+│       │
+│       └──
+│
+├── services/
+│      └── api_services.dart
+│
+└── main.dart
+```
+
+---
+
+## 📦 Packages Used
+
+```yaml
+dependencies:
+  flutter_bloc: ^9.x.x
+  dio: ^5.x.x
+```
+
+
+## 📌 Events
+
+- FetchPosts
+- CreatePosts
+- DeletePosts
+
+
+## ▶️ Running the Project
+
+1.Clone the repository
+2.Install dependencies
+3.flutter pub get
+4.flutter run
+
+## 📚 What I Learned
+
+- BLoC Architecture
+- Event Driven Programming
+- State Management using flutter_bloc
+- REST API Integration with Dio
+- Error Handling
+- Asynchronous Programming
+- Clean Flutter Project Structure
+- CRUD Operations using REST APIs
+
+---
+
+## ⚠️ Note
+
+This project uses **JSONPlaceholder**, which is a fake REST API.
+
+- ✅ GET returns real sample data.
+- ✅ POST returns a fake successful response.
+- ✅ DELETE returns a fake successful response.
+- ❌ Data is **not permanently created or deleted** on the server.
+
+This project is intended for learning BLoC and API integration concepts.
+
+---
+
+## 👨‍💻 Author
+
+Developed using Flutter, flutter_bloc, and Dio as a practice project for learning state management and REST API integration.
+
+---
+
+## ⭐ Support
+If you found this project useful, consider giving it a ⭐ on GitHub.
