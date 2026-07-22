@@ -48,10 +48,11 @@ lib/
 │       │   │   └── posts_state.dart
 │       │   │
 │       │   ├── screens/
-│       │   │     └── post_screen.dart
+│       │   │     ├── post_screen.dart
+│       │   │     └── create_post_screen.dart
 │       │   │
 │       │   └── widgets/
-│       │
+│       │     └── custom_card.dart
 │       └──
 │
 ├── services/
