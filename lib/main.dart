@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/core/router/app_router.dart';
 import 'package:flutter_app/features/posts/presentation/bloc/posts_bloc.dart';
-import 'package:flutter_app/features/posts/presentation/screens/post_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [BlocProvider(create: (context) => PostsBloc())],
-      child: MaterialApp(
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        home: PostScreen(),
+        routerConfig: appRouter,
       ),
     );
   }

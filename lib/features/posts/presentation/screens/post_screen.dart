@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/core/constants/router_constants.dart';
 import 'package:flutter_app/features/posts/presentation/bloc/posts_bloc.dart';
 import 'package:flutter_app/features/posts/presentation/screens/create_post_screen.dart';
 import 'package:flutter_app/features/posts/presentation/widgets/custom_card.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class PostScreen extends StatefulWidget {
   const PostScreen({super.key});
@@ -42,6 +44,12 @@ class _PostScreenState extends State<PostScreen> {
                         return CustomCard(
                           title: post.title ?? "",
                           id: post.id ?? 0,
+                          onTap: () {
+                            context.pushNamed(
+                              RouterConstants.postDetailScreen,
+                              extra: post,
+                            );
+                          },
                           onDelete: () {
                             context.read<PostsBloc>().add(
                               DeletePosts(id: post.id ?? 0),

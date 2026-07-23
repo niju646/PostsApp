@@ -12,6 +12,13 @@ class CreatePosts extends PostsEvent {
   CreatePosts({required this.title, required this.body});
 }
 
+class UpdatePosts extends PostsEvent {
+  final String title;
+  final String body;
+  final int id;
+  UpdatePosts({required this.title, required this.body, required this.id});
+}
+
 class DeletePosts extends PostsEvent {
   final int id;
   DeletePosts({required this.id});

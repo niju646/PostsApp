@@ -33,6 +33,16 @@ class ApiServices {
     );
   }
 
+  static Future<Response> put(
+    String endpoint,
+    dynamic data, {
+    bool isFormData = false,
+  }) async {
+    final requestData = _formatData(data, isFormData);
+
+    return await dio.put(endpoint, data: requestData);
+  }
+
   static Future<Response> delete(String endpoint) async {
     return await dio.delete(endpoint);
   }

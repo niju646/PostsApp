@@ -10,6 +10,7 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
   PostsBloc() : super(PostsInitial()) {
     on<FetchPosts>(_fetchPosts);
     on<CreatePosts>(_createPosts);
+    on<UpdatePosts>(_updatePosts);
     on<DeletePosts>(_deletePosts);
   }
 
@@ -39,6 +40,25 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
     try {
       if (response.statusCode == 200 || response.statusCode == 201) {
         log("posts created");
+        add(FetchPosts());
+        log(response.data.toString());
+      }
+    } catch (e) {
+      emit(PostsErrorState(error: e.toString()));
+      log(e.toString());
+    }
+  }
+
+  Future<void> _updatePosts(UpdatePosts event, Emitter<PostsState> emit) async {
+    emit(PostsLoadingState());
+    final response = await PostService().updatePosts(
+      title: event.title,
+      body: event.body,
+      id: event.id,
+    );
+    try {
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        log("posts updated");
         add(FetchPosts());
         log(response.data.toString());
       }
